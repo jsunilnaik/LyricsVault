@@ -33,4 +33,21 @@ export const songsAPI = {
   toggleFavorite: (id) => api.patch(`/songs/${id}/favorite`),
 };
 
+export const foldersAPI = {
+  getAll: () => api.get('/folders'),
+  create: (data) => api.post('/folders', data),
+  update: (id, data) => api.patch(`/folders/${id}`, data),
+  delete: (id) => api.delete(`/folders/${id}`),
+};
+
+export const playlistsAPI = {
+  getAll: () => api.get('/playlists'),
+  getById: (id) => api.get(`/playlists/${id}`),
+  create: (data) => api.post('/playlists', data),
+  update: (id, data) => api.patch(`/playlists/${id}`, data),
+  addSongs: (id, songIds) => api.post(`/playlists/${id}/songs`, { songIds }),
+  removeSong: (id, songId) => api.delete(`/playlists/${id}/songs/${songId}`),
+  delete: (id) => api.delete(`/playlists/${id}`),
+};
+
 export default api;

@@ -8,6 +8,8 @@ import SongEditor from './pages/SongEditor';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PresentationMode from './pages/PresentationMode';
+import Favorites from './pages/Favorites';
+import SearchPage from './pages/SearchPage';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useSelector((state) => state.auth);
@@ -54,6 +56,18 @@ function App() {
             <Route path="/present/:id" element={
               <ProtectedRoute>
                 <PresentationMode />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/favorites" element={
+              <ProtectedRoute>
+                <Favorites />
+              </ProtectedRoute>
+            } />
+            
+            <Route path="/search" element={
+              <ProtectedRoute>
+                <SearchPage />
               </ProtectedRoute>
             } />
             

@@ -14,6 +14,8 @@ require('dotenv').config({ path: '../.env' });
 
 const authRoutes = require('./routes/authRoutes');
 const songRoutes = require('./routes/songRoutes');
+const folderRoutes = require('./routes/folderRoutes');
+const playlistRoutes = require('./routes/playlistRoutes');
 
 const app = express();
 
@@ -25,6 +27,8 @@ app.use(morgan('dev'));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/songs', songRoutes);
+app.use('/api/folders', folderRoutes);
+app.use('/api/playlists', playlistRoutes);
 
 app.get('/', (req, res) => {
     res.send('LyricVault API is running...');
